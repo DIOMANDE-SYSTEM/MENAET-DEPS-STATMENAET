@@ -1048,6 +1048,39 @@ nav.main{gap:0}nav.main a{padding:9px 10px;white-space:nowrap}.arm,.auth-btn{fle
 .sg-sk-l{display:grid;gap:8px}.sg-sk-l i{height:18px;border-radius:9px;background:linear-gradient(90deg,#EEF1F6,#F8FAFD,#EEF1F6);background-size:200%;animation:sgSh 1.2s infinite}@keyframes sgSh{to{background-position:-200% 0}}
 @media(max-width:900px){#sig{padding:60px 0}.sg-hr{grid-template-columns:minmax(70px,38%) minmax(0,1fr) auto}}
 </style>
+<style>/* ===== Flash info : barre défilante fixée en bas ===== */
+:root{--fl-h:50px}
+.fl-bar{position:fixed;left:0;right:0;bottom:0;height:var(--fl-h);z-index:70;display:flex;align-items:stretch;gap:10px;padding:5px 12px 5px 8px;background:linear-gradient(180deg,#FFFDF8,#F4F1E4);border-top:1px solid #E7E1CC;box-shadow:0 -8px 24px rgba(12,32,54,.12)}
+.fl-lab{flex:none;display:flex;align-items:center;gap:7px;padding:0 18px;border-radius:12px;background:linear-gradient(135deg,var(--orange),var(--orange-2));color:#fff;font:800 14px var(--f-head);letter-spacing:.02em;white-space:nowrap;box-shadow:0 6px 14px rgba(255,106,0,.35)}
+.fl-lab .ico{width:18px;height:18px;fill:#fff;stroke:none}
+.fl-view{flex:1;min-width:0;overflow:hidden;border-radius:12px;background:rgba(255,255,255,.75);display:flex;align-items:center;mask-image:linear-gradient(90deg,transparent,#000 24px,#000 calc(100% - 24px),transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 24px,#000 calc(100% - 24px),transparent)}
+.fl-trk{display:flex;flex:none;width:max-content;animation:flMove var(--dur,60s) linear infinite}
+.fl-view:hover .fl-trk,.fl-view:focus-within .fl-trk{animation-play-state:paused}
+@keyframes flMove{to{transform:translateX(-50%)}}
+.fl-it{display:inline-flex;align-items:center;gap:8px;padding:0 26px;color:var(--green-d);font:800 13.5px var(--f-body);text-transform:uppercase;letter-spacing:.01em;white-space:nowrap;text-decoration:none;position:relative}
+.fl-it::after{content:"";position:absolute;right:-3px;top:50%;width:7px;height:7px;margin-top:-3.5px;border-radius:50%;background:var(--orange)}
+.fl-it span{color:var(--ink-2);font-weight:600;text-transform:none}
+a.fl-it:hover{color:var(--orange)}
+.fl-all{flex:none;display:inline-flex;align-items:center;gap:8px;padding:0 20px;border:0;border-radius:12px;background:linear-gradient(135deg,var(--green-d),var(--green-2));color:#fff;font:800 13.5px var(--f-body);cursor:pointer;box-shadow:0 6px 14px rgba(0,168,89,.3)}
+.fl-all .ico{width:15px;height:15px}.fl-all:hover{filter:brightness(1.08)}
+body.has-flash{padding-bottom:var(--fl-h)}
+body.has-flash .side{bottom:var(--fl-h)}
+body.has-flash .totop{bottom:calc(var(--fl-h) + 18px)}
+body.has-flash .s-fab{bottom:calc(var(--fl-h) + 16px)}
+body.has-flash #pwaBtn{bottom:calc(var(--fl-h) + 14px)}
+body.has-flash .toast{bottom:calc(var(--fl-h) + 22px)}
+.fl-ov{position:fixed;inset:0;z-index:135;background:rgba(8,24,43,.6);backdrop-filter:blur(5px);display:grid;place-items:center;padding:16px}
+.fl-pn{background:#fff;border-radius:22px;width:min(680px,100%);max-height:86vh;display:flex;flex-direction:column;box-shadow:0 30px 80px rgba(0,0,0,.35);overflow:hidden}
+.fl-ph{display:flex;align-items:center;gap:12px;padding:16px 18px;background:linear-gradient(135deg,var(--orange),var(--orange-2));color:#fff}.fl-ph h3{margin:0;font:800 19px var(--f-head);flex:1}
+.fl-ph .ico{width:22px;height:22px;fill:#fff;stroke:none}.fl-x{border:0;background:rgba(255,255,255,.25);color:#fff;width:36px;height:36px;border-radius:50%;cursor:pointer;display:grid;place-items:center}.fl-x .ico{width:16px;height:16px;fill:none;stroke:#fff}
+.fl-ls{overflow:auto;padding:8px 18px 18px;display:grid}
+.fl-row{display:grid;gap:4px;padding:14px 0;border-bottom:1px solid var(--line)}.fl-row:last-child{border:0}
+.fl-row b{font:800 15px var(--f-head);color:var(--ink)}.fl-row p{margin:0;color:var(--ink-2);font-size:14px}.fl-row small{color:var(--mute);font-weight:700}
+.fl-row a{justify-self:start;margin-top:4px;color:var(--green-d);font-weight:800;font-size:13.5px}
+@media(max-width:700px){:root{--fl-h:46px}.fl-lab{padding:0 10px;font-size:12px}.fl-lab span{display:none}.fl-lab .ico{width:20px;height:20px}.fl-all{padding:0 12px;font-size:12.5px}.fl-it{font-size:12.5px;padding:0 20px}}
+@media(prefers-reduced-motion:reduce){.fl-trk{animation:none}.fl-view{overflow-x:auto}}
+@media print{.fl-bar{display:none}}
+</style>
 </head>
 <body>
 
@@ -1065,6 +1098,7 @@ nav.main{gap:0}nav.main a{padding:9px 10px;white-space:nowrap}.arm,.auth-btn{fle
 <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></symbol>
 <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v12M7 11l5 5 5-5M4 20h16"/></symbol>
 <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></symbol>
+<symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13.5 2L4.5 13.5h6L9.5 22l9-11.5h-6z"/></symbol>
 <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 21a2 2 0 0 0 4 0"/></symbol>
 <symbol id="i-sheet" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13l4 4M13 13l-4 4"/></symbol>
 <symbol id="i-calc" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M8.5 7h7M9 12h.01M12 12h.01M15 12h.01M9 16h.01M12 16h.01M15 16h.01"/></symbol>
@@ -3052,11 +3086,12 @@ const SLOTS={
  hero:{n:'Carrousel d\'accueil',d:'Grandes bannières animées sous l\'accueil.',ic:'image'},
  side:{n:'Carte du panneau latéral',d:'Annonce compacte dans le panneau de gauche.',ic:'layers'},
  mid:{n:'Bandeaux avant le pied de page',d:'Bannières pleine largeur en bas de page.',ic:'star'},
+ flash:{n:'Flash info (bas de page)',d:'Barre d\'actualités défilante fixée en bas de l\'écran, avec le bouton « Tout afficher ».',ic:'bolt'},
  popup:{n:'Fenêtre pop-up',d:'S\'affiche à l\'ouverture du site, une fois par session.',ic:'bell'}};
 const KIND={annonce:'Annonce',pub:'Publicité',info:'Information'};
 const THEMES={orange:['Orange','#FF6A00','#FF3D81','#fff'],vert:['Vert','#00A859','#00B7E8','#fff'],soleil:['Soleil','#FFC400','#FF8A00','#0C2036'],violet:['Violet','#7B3FF2','#FF3D81','#fff'],bleu:['Bleu','#1F6FEB','#00B7E8','#fff'],nuit:['Nuit','#08182B','#1B3A63','#fff'],tricolore:['Tricolore','#FF6A00','#00A859','#fff']};
 const ANIMS={fade:'Fondu',slide:'Glissement',zoom:'Zoom',bounce:'Rebond',flip:'Rotation'};
-const DEF_SLOTS={ticker:true,hero:true,side:true,mid:true,popup:true,speed:6,tick:'normal'};
+const DEF_SLOTS={flash:true,ticker:true,hero:true,side:true,mid:true,popup:true,speed:6,tick:'normal'};
 let ads={items:[],slots:{...DEF_SLOTS}},adTimers=[],adLast=0,sTab='ads',AF={slot:''},E=null,popDone=false;
 const todayS=()=>new Date(Date.now()-new Date().getTimezoneOffset()*6e4).toISOString().slice(0,10);
 const adStatus=it=>it.active===false?'off':(it.start&&it.start>todayS())?'soon':(it.end&&it.end<todayS())?'end':'on';
@@ -3089,7 +3124,7 @@ const carHTML=(items,arrows)=>`<div class="ad-car">${items.map(it=>slide(it)).jo
 
 function renderAds(){
   adTimers.forEach(f=>f());adTimers=[];
-  ['adTicker','adHero','adSide','adMid'].forEach(id=>{const e=document.getElementById(id);if(e)e.remove()});
+  ['adTicker','adHero','adSide','adMid','flashBar'].forEach(id=>{const e=document.getElementById(id);if(e)e.remove()});
   const main=$('main'),sp=Math.min(15,Math.max(3,+ads.slots.speed||6));
   /* bandeau défilant */
   const tk=slotOn('ticker')?adItems('ticker'):[],tkKey=tk.map(i=>i.id+(i.updated||'')).join();
@@ -3104,6 +3139,21 @@ function renderAds(){
     el.querySelector('.tk-x').onclick=()=>{tset('statmen_tk',tkKey);el.remove()};
     main.prepend(el);
   }
+  /* flash info (bas de page) */
+  {const FD=[{id:'fd1',kind:'info',title:'Test ASER : remontées par année et par phase',text:'début, mi-parcours et fin',link:'#aser'},{id:'fd2',kind:'info',title:'Rapports PNAPAS : 41 DRENAET et toutes les IEPP',text:'pré/post-tests, rapport PDF et Excel',link:'#pnapas'},{id:'fd3',kind:'info',title:'Tableau de bord SIG-DATA',text:'indicateurs de tous les modules',link:'#sig'}];
+   const has=ads.items.some(i=>i.slot==='flash'),fl=slotOn('flash')?(has?adItems('flash'):FD):[];
+   document.body.classList.toggle('has-flash',fl.length>0);
+   if(fl.length){
+    const one=fl.map(it=>{const lk=safeLink(it.link),tag=lk?'a':'span';return `<${tag} class="fl-it" ${lk?`href="${esc(lk)}" ${lk[0]==='#'?'':'target="_blank" rel="noopener noreferrer"'}`:''}>${esc(it.title)}${it.text?`<span>— ${esc(it.text)}</span>`:''}</${tag}>`}).join('');
+    const chars=fl.reduce((n,i)=>n+i.title.length+(i.text||'').length+6,0),rep=Math.max(1,Math.ceil(2400/(chars*8.5))),mult={slow:1.7,normal:1,fast:.6}[ads.slots.tick]||1,grp=one.repeat(rep);
+    const el=document.createElement('div');el.className='fl-bar';el.id='flashBar';el.setAttribute('role','region');el.setAttribute('aria-label','Flash info');
+    el.style.setProperty('--dur',Math.max(18,chars*rep*.2*mult)+'s');
+    el.innerHTML=`<div class="fl-lab">${ic('bolt')}<span>FLASH INFO</span></div><div class="fl-view"><div class="fl-trk">${grp}${grp}</div></div><button class="fl-all" type="button">Tout afficher ${ic('arrow')}</button>`;
+    el.querySelector('.fl-all').onclick=()=>{const o=document.createElement('div');o.className='fl-ov';
+     o.innerHTML=`<div class="fl-pn" role="dialog" aria-modal="true" aria-label="Flash info"><div class="fl-ph">${ic('bolt')}<h3>Flash info</h3><button class="fl-x" aria-label="Fermer">${ic('x')}</button></div><div class="fl-ls">${fl.map(it=>{const lk=safeLink(it.link),d=it.updated?new Date(it.updated).toLocaleDateString('fr-FR'):'';return `<div class="fl-row">${d?`<small>${d}</small>`:''}<b>${esc(it.title)}</b>${it.text?`<p>${esc(it.text)}</p>`:''}${lk?`<a href="${esc(lk)}" ${lk[0]==='#'?'':'target="_blank" rel="noopener noreferrer"'}>${esc(it.linkLabel||'En savoir plus')} →</a>`:''}</div>`}).join('')}</div></div>`;
+     document.body.appendChild(o);const cl=()=>{o.remove();document.removeEventListener('keydown',kd)},kd=e=>{if(e.key==='Escape')cl()};document.addEventListener('keydown',kd);
+     o.querySelector('.fl-x').onclick=cl;o.addEventListener('mousedown',e=>{if(e.target===o)cl()});o.querySelectorAll('a').forEach(a=>a.addEventListener('click',cl))};
+    document.body.appendChild(el)}}
   /* carrousel d'accueil */
   const hr=slotOn('hero')?adItems('hero'):[],rb=main.querySelector('.ribbon');
   if(hr.length&&rb){rb.insertAdjacentHTML('afterend',`<section class="ad-sec" id="adHero" aria-label="Annonces"><div class="wrap">${carHTML(hr,true)}</div></section>`);mountCar($('#adHero .ad-car'),sp)}
