@@ -1,6 +1,6 @@
-/* StatMen — service worker : fonctionne hors connexion pour la page, jamais pour Firebase */
-const V='statmen-v2';
-const SHELL=['./','pwa/icon-192.png','pwa/icon-512.png','pwa/apple-touch-icon.png','pwa/manifest.webmanifest'];
+/* SIG-DATA — service worker : fonctionne hors connexion pour la page, jamais pour Firebase */
+const V='sigdata-v3';
+const SHELL=['./','pwa/icon-192.png','pwa/icon-512.png','pwa/apple-touch-icon.png','pwa/manifest-sigdata.webmanifest'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(V).then(c=>c.addAll(SHELL).catch(()=>{})).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==V).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});
 self.addEventListener('fetch',e=>{

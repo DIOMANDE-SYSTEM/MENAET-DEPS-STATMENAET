@@ -1081,6 +1081,13 @@ body.has-flash .toast{bottom:calc(var(--fl-h) + 22px)}
 @media(prefers-reduced-motion:reduce){.fl-trk{animation:none}.fl-view{overflow-x:auto}}
 @media print{.fl-bar{display:none}}
 </style>
+<style>.mdl-box.xl{width:min(1480px,98vw)}
+.mdl:has(.mdl-box.xl){padding:2vh 1vw}
+.mdl-box.xl .adedit{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:30px;padding:22px 34px 34px}
+.mdl-box.xl .adprev{top:12px}
+.mdl-box.xl .pf-prev{max-height:84vh;padding:18px}
+@media(max-width:900px){.mdl:has(.mdl-box.xl){padding:8px}.mdl-box.xl .adedit{grid-template-columns:minmax(0,1fr);padding:16px 16px 24px}.mdl-box.xl .adprev{position:static}.mdl-box.xl .pf-prev{max-height:none}}
+</style>
 </head>
 <body>
 
@@ -2503,7 +2510,7 @@ $$('[data-dl]').forEach(b=>b.onclick=()=>{const [name,rows]=CSV[b.dataset.dl];
 
 /* ====== v4 : connexion et administration — mode local OU Firebase ====== */
 /* Pour relier Firebase « en dur », renseignez FIREBASE_CONFIG ci-dessous (sinon l'assistant du site peut l'enregistrer). */
-const FIREBASE_CONFIG={apiKey:"",authDomain:"",projectId:"",storageBucket:"",messagingSenderId:"",appId:""};
+const FIREBASE_CONFIG={apiKey:"AIzaSyAB1r5DlW7XL5HZsV_n3xOuc256zDGWeVI",authDomain:"menaet-deps-statmenaet.firebaseapp.com",projectId:"menaet-deps-statmenaet",storageBucket:"menaet-deps-statmenaet.firebasestorage.app",messagingSenderId:"448389260062",appId:"1:448389260062:web:a6879fee9a1741a98e9f0f",measurementId:"G-CFMG467LZG"};
 (function(){
 'use strict';
 const K_U='statmen_users_v1',K_A='statmen_audit_v1',K_S='statmen_session_v1',K_C='statmen_fb_cfg',FBV='10.14.1';
@@ -3524,7 +3531,7 @@ function viewFormEdit(id,draft){
    <div class="addq"><select id="fmAddT">${Object.keys(FTYPES).map(k=>`<option value="${k}">${FTYPES[k][0]}</option>`).join('')}</select><button class="btn btn-w sm" type="button" data-fm="addq">${ic('plus')} Ajouter une question</button></div>
    <div class="merr" id="fmEditErr" role="alert"></div>
    <div class="macts" style="padding:0"><button class="btn btn-o" type="button" data-fm="saveform">${ic('check')} Enregistrer</button><button class="btn btn-w" type="button" data-fm="tab" data-id="forms">Annuler</button></div></div>
-   <div class="adprev"><b style="font-family:var(--f-head)">Aperçu du formulaire</b><div class="pv pf-prev" id="fbPrev"></div></div></div>`);
+   <div class="adprev"><b style="font-family:var(--f-head)">Aperçu du formulaire</b><div class="pv pf-prev" id="fbPrev"></div></div></div>`,true);box.classList.add('xl');
   drawFields();drawPrev();
 }
 function fcHTML(q,i,n){
